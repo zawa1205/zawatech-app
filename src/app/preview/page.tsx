@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "../../styles/page.module.css";
+import styles from "../../globalStyles/page.module.scss";
 import React, { Suspense } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { Post } from "@/components";

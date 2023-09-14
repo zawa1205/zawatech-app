@@ -1,9 +1,9 @@
-import styles from "../styles/page.module.css";
+import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 import { GET_POSTS } from "@/graphql/queries";
 import { getClient } from "@/lib/apolloClient";
-import Image from "next/image";
-import React from "react";
+import styles from "../globalStyles/page.module.scss";
 
 type Post = {
   id: string;

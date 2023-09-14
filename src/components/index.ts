@@ -1,1 +1,2 @@
-export * from "./Post";
+export * from "./layouts";
+export * from "./parts";
