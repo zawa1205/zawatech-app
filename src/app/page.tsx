@@ -3,21 +3,18 @@ import Head from "next/head";
 import { GET_POSTS } from "@/graphql/queries";
 import { getClient } from "@/lib/apolloClient";
 import Image from "next/image";
+import React from "react";
 
 type Post = {
   id: string;
   title: string;
 };
 
-type Props = {
-  initialPosts: Post[];
-};
-
-export default async function Home({ initialPosts }: Props) {
+export default async function Home() {
   const baseUrl = "http://localhost:3000";
 
   const { data } = await getClient().query({ query: GET_POSTS });
-  const posts = data?.posts.edges.map(({ node }: any) => node) || initialPosts;
+  const posts = data?.posts.edges.map(({ node }: any) => node);
 
   return (
     <main className={styles.main}>

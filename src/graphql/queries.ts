@@ -15,12 +15,13 @@ export const GET_POSTS = gql`
 `;
 
 export const GET_PREVIEW = gql`
+  # query GetPreview {
   query GetPreview($postId: ID!) {
     # post(id: "383", idType: DATABASE_ID) {
-    # post(id: "410", asPreview: true, idType: DATABASE_ID) {
     post(id: $postId, asPreview: true, idType: DATABASE_ID) {
-      content
+      # post(id: "410", idType: DATABASE_ID) {
       title
+      content
     }
   }
 `;
