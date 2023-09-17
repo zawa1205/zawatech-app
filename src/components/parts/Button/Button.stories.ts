@@ -1,29 +1,25 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button } from "./Button";
+import { Button } from './Button'
 
 const meta = {
-  title: "parts/Button",
+  title: 'parts/Button',
   component: Button,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
-  tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: "color" },
-  },
-} satisfies Meta<typeof Button>;
+  tags: ['autodocs'],
+} satisfies Meta<typeof Button>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-// More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
-  args: {},
-};
+  args: {
+    text: 'ログイン',
+    onClickHandler: () => alert('clicked'),
+  },
+}
 
 // export const Primary: Story = {
 //   args: {

@@ -1,0 +1,16 @@
+.button {
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+    // background-color: (255, 255, 255, 0.12);
+  }
+}

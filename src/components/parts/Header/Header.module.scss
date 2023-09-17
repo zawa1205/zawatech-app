@@ -1,0 +1,74 @@
+.header {
+  max-width: 1656px;
+  margin: auto;
+  padding: 0 12px;
+
+  @media screen and (min-width: 769px) {
+    padding: 0 24px;
+  }
+}
+
+.sp-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}
+
+.pc-input {
+  display: none;
+  width: 320px;
+  @media screen and (min-width: 769px) {
+    display: block;
+  }
+}
+
+.normal-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  position: relative;
+  @media screen and (min-width: 769px) {
+    height: 56px;
+  }
+}
+
+.right-contents,
+.left-contents {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-contents {
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+// .logo {
+//   position: absolute;
+//   left: 50%;
+//   transform: translate(-50%);
+//   top: 3px;
+// }
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+
+.login-button-wrapper {
+  margin-right: 12px;
+}
