@@ -1,20 +1,26 @@
 import React from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
-import { GET_POSTS } from '@/graphql/queries'
+import { GET_TOP } from '@/graphql/queries'
 import { getClient } from '@/lib/apolloClient'
 import styles from './page.module.scss'
+import { MorePosts } from '@/components/parts/MorePosts'
+import { Post } from '@/components/parts/Post'
 
 type Post = {
-  id: string
+  databaseId: number
   title: string
+  date: string
 }
 
 export default async function Home() {
   const baseUrl = 'http://localhost:3000'
+  const { data } = await getClient().query({
+    query: GET_TOP,
+    variables: { size: 4, offset: 0 },
+  })
 
-  const { data } = await getClient().query({ query: GET_POSTS })
-  const posts = data?.posts.edges.map(({ node }: any) => node)
+  const posts = data?.posts.nodes
+  const hasMore = data?.posts.pageInfo.offsetPagination.hasMore
 
   return (
     <main>
@@ -27,16 +33,9 @@ export default async function Home() {
 
         <div className={styles['center-contents']}>
           {posts.map((post: Post) => (
-            <div key={post.id}>
-              <h2>{post.title}</h2>
-              {/* <Image
-              src={`${baseUrl}/api/og?title=${post.title}`}
-              alt=""
-              width={'400'}
-              height={'200'}
-            /> */}
-            </div>
+            <Post title={post.title} date={post.date} />
           ))}
+          {hasMore && <MorePosts />}
         </div>
         <div className={styles['right-contents']}>右</div>
       </div>

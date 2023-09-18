@@ -1,0 +1,19 @@
+.post {
+  background-color: #fff;
+  height: 200px;
+  width: 100%;
+  padding: 12px;
+  margin-top: 24px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @media (min-width: 992px) {
+    border-radius: 8px;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+}

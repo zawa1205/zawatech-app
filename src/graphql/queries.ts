@@ -1,4 +1,4 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client'
 
 export const GET_POSTS = gql`
   query GetPosts {
@@ -12,7 +12,7 @@ export const GET_POSTS = gql`
       }
     }
   }
-`;
+`
 
 export const GET_PREVIEW = gql`
   # query GetPreview {
@@ -24,4 +24,23 @@ export const GET_PREVIEW = gql`
       content
     }
   }
-`;
+`
+
+export const GET_TOP = gql`
+  query GetTop($size: Int!, $offset: Int!) {
+    posts(where: { offsetPagination: { size: $size, offset: $offset } }) {
+      pageInfo {
+        offsetPagination {
+          hasMore
+          hasPrevious
+          total
+        }
+      }
+      nodes {
+        title
+        date
+        databaseId
+      }
+    }
+  }
+`

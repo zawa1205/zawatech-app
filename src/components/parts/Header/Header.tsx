@@ -32,10 +32,20 @@ export const Header: FC = () => {
         <div className={styles['right-contents']}>
           <div className={styles['login-button-wrapper']}>
             {loginVisible && !session && (
-              <Button text="ログイン" onClickHandler={() => signIn()} />
+              <Button
+                text="ログイン"
+                shape="round"
+                size="s"
+                onClickHandler={() => signIn()}
+              />
             )}
             {loginVisible && session && (
-              <Button text="ログアウト" onClickHandler={() => signOut()} />
+              <Button
+                text="ログアウト"
+                shape="round"
+                size="s"
+                onClickHandler={() => signOut()}
+              />
             )}
           </div>
           {!inputVisible && (
