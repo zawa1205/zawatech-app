@@ -2,10 +2,21 @@
   margin: auto;
   max-width: 1656px;
   min-height: 100vh;
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 16px;
+  }
 }
 
 .main-wrapper {
-  background: var(--color-background);
   display: flex;
   gap: 56px;
   -webkit-box-pack: center;
