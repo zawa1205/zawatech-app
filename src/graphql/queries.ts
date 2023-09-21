@@ -38,7 +38,7 @@ export const GET_TOP = gql`
       }
       nodes {
         title
-        date
+        modified
         databaseId
       }
     }

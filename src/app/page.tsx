@@ -33,7 +33,7 @@ export default async function Home() {
 
         <div className={styles['center-contents']}>
           {posts.map((post: Post) => (
-            <Post title={post.title} date={post.date} />
+            <Post title={post.title} date={post.date} key={post.databaseId} />
           ))}
           {hasMore && <MorePosts />}
         </div>

@@ -12,3 +12,5 @@ export const Post: FC<PostProps> = memo(({ title, date }) => (
     <span>{date}</span>
   </div>
 ))
+
+Post.displayName = 'Post'
