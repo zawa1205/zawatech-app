@@ -1,39 +1,32 @@
 'use client'
 
-import React, { Suspense } from 'react'
-// import { signIn, signOut, useSession } from 'next-auth/react'
-import { Post } from '@/components'
+import React from 'react'
+import { useSession } from 'next-auth/react'
+import useSWR from 'swr'
+import { PostContent } from '@/components/parts/PostContent'
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default function App({ searchParams }: Props) {
-  return (
-    <main>
-      <h1>zawatech.com</h1>
-      <Suspense fallback={<div>Loading...</div>}>
-        <PreviewPage searchParams={searchParams} />
-      </Suspense>
-    </main>
-  )
+const fetcher = (url: string) => {
+  return fetch(url).then((res) => res.json())
 }
 
-function PreviewPage({ searchParams }: Props) {
+export default function App({ searchParams }: Props) {
+  const { data: session } = useSession()
   const postId: string = searchParams['p']?.toString() ?? '0'
+  const { data, isLoading } = useSWR(`/api/post?p=${postId}`, fetcher)
 
-  // const { data: session } = useSession()
-
-  console.log(postId)
+  if (isLoading) return 'ローディング中'
+  if (!data || !data.post || !(session && session.user?.role === 'admin'))
+    return '記事はありません'
 
   return (
-    <div>
-      プレビューーーー
-      {/* <div>
-        {!session && <button onClick={() => signIn()}>Sign In</button>}
-        {session && <button onClick={() => signOut()}>Sign Out</button>}
-      </div>
-      {session && session.user?.role === 'admin' && <Post postId={postId} />} */}
-    </div>
+    <PostContent
+      title={data.post.title}
+      date={data.post.modified}
+      content={data.post.content}
+    />
   )
 }

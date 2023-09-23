@@ -1,7 +1,7 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client'
 import { registerApolloClient } from '@apollo/experimental-nextjs-app-support/rsc'
 
-export const { getClient } = registerApolloClient(() => {
+export const getClientAuth = registerApolloClient(() => {
   return new ApolloClient({
     ssrMode: true,
     cache: new InMemoryCache(),
@@ -14,8 +14,8 @@ export const { getClient } = registerApolloClient(() => {
       credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${process.env.REFRESH_TOKEN}`,
+        Authorization: `Bearer ${process.env.AUTH_REFRESH_TOKEN}`,
       },
     }),
   })
-})
+}).getClient

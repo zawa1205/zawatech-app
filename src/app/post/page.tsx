@@ -1,8 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
-import { GET_POST, GET_TOP } from '@/graphql/queries'
+import { GET_POST } from '@/graphql/queries'
 import { getClient } from '@/lib/apolloClient'
 import styles from './page.module.scss'
+import { PostContent } from '@/components/parts/PostContent'
 
 type Post = {
   databaseId: number
@@ -33,12 +34,7 @@ export default async function Post({ searchParams }: Props) {
       <div className={styles['main-wrapper']}>
         <div className={styles['left-contents']}>左</div>
         <div className={styles['center-contents']}>
-          <h1>{title}</h1>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: content,
-            }}
-          />
+          <PostContent title={title} date={modified} content={content} />
         </div>
         <div className={styles['right-contents']}>右</div>
       </div>
