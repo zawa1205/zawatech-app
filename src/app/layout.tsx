@@ -1,12 +1,16 @@
 import React from 'react'
 import { NextAuthProvider } from '@/providors/NextAuth'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Noto_Sans_JP } from 'next/font/google'
 import { Header } from '@/components/parts/Header'
 import styles from './layout.module.scss'
 import { Footer } from '@/components/parts/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const notojp = Noto_Sans_JP({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'zawatech.com',
@@ -19,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ja">
-      <body className={`${inter.className}, ${styles.body}`}>
+    <html lang="ja" className={notojp.className}>
+      <body className={styles.body}>
         <NextAuthProvider>
           <Header />
           {children}

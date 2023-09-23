@@ -1,11 +1,32 @@
 .wp-block-kevinbatdorf-code-block-pro {
   background-color: #1e1e1e;
   width: 100%;
+  border-radius: 6px;
 
   span {
     width: unset !important;
+    border-radius: 6px 6px 0 0;
   }
   pre {
     padding: 0 16px 16px 16px;
+    text-wrap: balance;
+    border-radius: 0 0 6px 6px;
+  }
+}
+
+body {
+  overflow-wrap: anywhere;
+
+  img {
+    max-width: 100%;
+    height: unset;
+  }
+
+  iframe {
+    max-width: 100%;
+  }
+
+  .wp-block-quote {
+    margin: 16px 0;
   }
 }
