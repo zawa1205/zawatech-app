@@ -4,6 +4,7 @@ import { FC, useState } from 'react'
 import { Button } from '../Button'
 import styles from './Moreposts.module.scss'
 import { Post } from '../Post'
+import Link from 'next/link'
 
 const fetcher = (url: string) => {
   return fetch(url).then((res) => res.json())
@@ -32,7 +33,13 @@ export const MorePosts: FC = () => {
   return (
     <>
       {posts.map((post: Post) => (
-        <Post title={post.title} date={post.modified} key={post.databaseId} />
+        <Link
+          href={`/post?p=${post.databaseId}`}
+          key={post.databaseId}
+          className={styles['post-link']}
+        >
+          <Post title={post.title} date={post.modified} />
+        </Link>
       ))}
 
       {data && 5 <= data.total && hasMore && (

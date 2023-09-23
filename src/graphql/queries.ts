@@ -44,3 +44,13 @@ export const GET_TOP = gql`
     }
   }
 `
+
+export const GET_POST = gql`
+  query GetPost($postId: ID!) {
+    post(id: $postId, idType: DATABASE_ID) {
+      content
+      title
+      modified
+    }
+  }
+`

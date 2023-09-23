@@ -42,22 +42,3 @@
   align-items: center;
   flex-flow: column;
 }
-
-.more-button-wrapper {
-  margin-top: 24px;
-}
-
-.post-link {
-  width: 100%;
-  margin-top: 24px;
-  color: #333;
-  text-decoration: none;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:visited {
-    color: #333;
-  }
-}

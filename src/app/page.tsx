@@ -5,6 +5,7 @@ import { getClient } from '@/lib/apolloClient'
 import styles from './page.module.scss'
 import { MorePosts } from '@/components/parts/MorePosts'
 import { Post } from '@/components/parts/Post'
+import Link from 'next/link'
 
 type Post = {
   databaseId: number
@@ -33,7 +34,13 @@ export default async function Home() {
 
         <div className={styles['center-contents']}>
           {posts.map((post: Post) => (
-            <Post title={post.title} date={post.date} key={post.databaseId} />
+            <Link
+              href={`/post?p=${post.databaseId}`}
+              key={post.databaseId}
+              className={styles['post-link']}
+            >
+              <Post title={post.title} date={post.date} />
+            </Link>
           ))}
           {hasMore && <MorePosts />}
         </div>
