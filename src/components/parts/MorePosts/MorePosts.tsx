@@ -2,7 +2,7 @@
 import useSWR from 'swr'
 import { FC, useState } from 'react'
 import { Button } from '../Button'
-import styles from './Moreposts.module.scss'
+import styles from './MorePosts.module.scss'
 import { Post } from '../Post'
 import Link from 'next/link'
 

@@ -2,20 +2,32 @@
   background-color: #1e1e1e;
   width: 100%;
   border-radius: 6px;
+  box-sizing: border-box;
+  overflow-x: scroll;
 
   span {
-    width: unset !important;
     border-radius: 6px 6px 0 0;
+    box-sizing: border-box;
+    &.line {
+      padding-right: 16px;
+    }
   }
+  & > span:first-child {
+    position: absolute;
+    width: 100px !important;
+  }
+
   pre {
-    padding: 0 16px 16px 16px;
-    text-wrap: balance;
+    padding: 32px 16px 8px 16px;
     border-radius: 0 0 6px 6px;
   }
 }
 
 body {
   overflow-wrap: anywhere;
+  p {
+    line-height: 1.8;
+  }
 
   img {
     max-width: 100%;
