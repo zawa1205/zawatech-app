@@ -1,19 +1,5 @@
 import { gql } from '@apollo/client'
 
-export const GET_POSTS = gql`
-  query GetPosts {
-    posts {
-      edges {
-        node {
-          id
-          title
-          #   content
-        }
-      }
-    }
-  }
-`
-
 export const SEARCH_POSTS = gql`
   query SearchPosts($query: String!, $size: Int!, $offset: Int!) {
     posts(
@@ -30,12 +16,14 @@ export const SEARCH_POSTS = gql`
         }
       }
       nodes {
+        databaseId
+        modified
+        title
         tags {
           nodes {
             name
           }
         }
-        content
         categories {
           nodes {
             name
@@ -46,21 +34,32 @@ export const SEARCH_POSTS = gql`
             name
           }
         }
-        title
-        databaseId
       }
     }
   }
 `
 
 export const GET_PREVIEW = gql`
-  # query GetPreview {
   query GetPreview($postId: ID!) {
-    # post(id: "383", idType: DATABASE_ID) {
     post(id: $postId, asPreview: true, idType: DATABASE_ID) {
-      # post(id: "410", idType: DATABASE_ID) {
-      title
+      tags {
+        nodes {
+          name
+        }
+      }
       content
+      categories {
+        nodes {
+          name
+        }
+      }
+      terms {
+        nodes {
+          name
+        }
+      }
+      title
+      databaseId
     }
   }
 `
@@ -76,9 +75,24 @@ export const GET_TOP = gql`
         }
       }
       nodes {
-        title
-        modified
         databaseId
+        modified
+        title
+        tags {
+          nodes {
+            name
+          }
+        }
+        categories {
+          nodes {
+            name
+          }
+        }
+        terms {
+          nodes {
+            name
+          }
+        }
       }
     }
   }
@@ -88,8 +102,24 @@ export const GET_POST = gql`
   query GetPost($postId: ID!) {
     post(id: $postId, idType: DATABASE_ID) {
       content
-      title
+      databaseId
       modified
+      title
+      categories {
+        nodes {
+          name
+        }
+      }
+      tags {
+        nodes {
+          name
+        }
+      }
+      terms {
+        nodes {
+          name
+        }
+      }
     }
   }
 `

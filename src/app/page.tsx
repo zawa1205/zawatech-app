@@ -9,19 +9,47 @@ import Link from 'next/link'
 
 type Post = {
   databaseId: number
+  modified: string
   title: string
-  date: string
+  tags: string[]
+  categories: string[]
+  terms: string[]
 }
 
 export default async function Home() {
   const baseUrl = 'http://localhost:3000'
   const { data } = await getClient().query({
     query: GET_TOP,
-    variables: { size: 4, offset: 0 },
+    variables: { size: 5, offset: 0 },
   })
 
-  const posts = data?.posts.nodes
+  const posts: Post[] = new Array()
   const hasMore = data?.posts.pageInfo.offsetPagination.hasMore
+
+  data?.posts.nodes.map((post: any) => {
+    const tags = new Array()
+    const categories = new Array()
+    const terms = new Array()
+
+    post?.tags?.nodes.map((tag: any) => {
+      tags.push(tag.name)
+    })
+    post?.categories?.nodes.map((category: any) => {
+      categories.push(category.name)
+    })
+    post?.terms?.nodes.map((term: any) => {
+      terms.push(term.name)
+    })
+
+    posts.push({
+      databaseId: post.databaseId,
+      modified: post.modified,
+      title: post.title,
+      tags,
+      categories,
+      terms,
+    })
+  })
 
   return (
     <main>
@@ -39,7 +67,13 @@ export default async function Home() {
               key={post.databaseId}
               className={styles['post-link']}
             >
-              <Post title={post.title} date={post.date} />
+              <Post
+                title={post.title}
+                date={post.modified}
+                tags={post.tags}
+                categories={post.categories}
+                terms={post.terms}
+              />
             </Link>
           ))}
           {hasMore && <MorePosts />}

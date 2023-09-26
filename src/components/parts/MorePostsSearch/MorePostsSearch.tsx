@@ -12,8 +12,11 @@ const fetcher = (url: string) => {
 
 type Post = {
   databaseId: number
-  title: string
   modified: string
+  title: string
+  tags: string[]
+  categories: string[]
+  terms: string[]
 }
 
 export const MorePostsSearch: FC<{ query: string[] }> = ({ query }) => {
@@ -26,8 +29,35 @@ export const MorePostsSearch: FC<{ query: string[] }> = ({ query }) => {
   )
 
   const getMore = () => {
+    const fetchedPosts = new Array()
+
+    data?.posts?.map((post: any) => {
+      const tags = new Array()
+      const categories = new Array()
+      const terms = new Array()
+
+      post?.tags?.nodes.map((tag: any) => {
+        tags.push(tag.name)
+      })
+      post?.categories?.nodes.map((category: any) => {
+        categories.push(category.name)
+      })
+      post?.terms?.nodes.map((term: any) => {
+        terms.push(term.name)
+      })
+
+      fetchedPosts.push({
+        databaseId: post.databaseId,
+        modified: post.modified,
+        title: post.title,
+        tags,
+        categories,
+        terms,
+      })
+    })
+
     setHasMore(data.hasMore)
-    setPosts([...posts, ...data.posts])
+    setPosts([...posts, ...fetchedPosts])
     setOffset(offset + 5)
   }
 
@@ -39,7 +69,13 @@ export const MorePostsSearch: FC<{ query: string[] }> = ({ query }) => {
           key={post.databaseId}
           className={styles['post-link']}
         >
-          <Post title={post.title} date={post.modified} />
+          <Post
+            title={post.title}
+            date={post.modified}
+            tags={post.tags}
+            categories={post.categories}
+            terms={post.terms}
+          />
         </Link>
       ))}
 
