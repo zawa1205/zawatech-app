@@ -14,6 +14,45 @@ export const GET_POSTS = gql`
   }
 `
 
+export const SEARCH_POSTS = gql`
+  query SearchPosts($query: String!, $size: Int!, $offset: Int!) {
+    posts(
+      where: {
+        search: $query
+        offsetPagination: { size: $size, offset: $offset }
+      }
+    ) {
+      pageInfo {
+        offsetPagination {
+          hasMore
+          hasPrevious
+          total
+        }
+      }
+      nodes {
+        tags {
+          nodes {
+            name
+          }
+        }
+        content
+        categories {
+          nodes {
+            name
+          }
+        }
+        terms {
+          nodes {
+            name
+          }
+        }
+        title
+        databaseId
+      }
+    }
+  }
+`
+
 export const GET_PREVIEW = gql`
   # query GetPreview {
   query GetPreview($postId: ID!) {

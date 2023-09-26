@@ -1,0 +1,21 @@
+.button-wrapper {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.post-link {
+  width: 100%;
+  display: block;
+  margin-top: 24px;
+  color: #333;
+  text-decoration: none;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:visited {
+    color: #333;
+  }
+}
