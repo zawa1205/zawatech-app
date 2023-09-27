@@ -1,0 +1,46 @@
+.profile {
+  background-color: #fff;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  flex-flow: column;
+
+  @media (min-width: 992px) {
+    border-radius: 8px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  .name {
+    font-size: 16px;
+    margin: 0 16px;
+    font-weight: bold;
+  }
+
+  .sns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 12px;
+  }
+  .sns-icon {
+    margin: 0 4px;
+    display: inline-block;
+  }
+
+  .introduce {
+    margin: 8px 0 0 0;
+    font-size: 14px;
+  }
+}

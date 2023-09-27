@@ -6,6 +6,7 @@ import styles from './page.module.scss'
 import { MorePosts } from '@/components/parts/MorePosts'
 import { Post } from '@/components/parts/Post'
 import Link from 'next/link'
+import { Profile } from '@/components/parts/Profile'
 
 type Post = {
   databaseId: number
@@ -78,7 +79,9 @@ export default async function Home() {
           ))}
           {hasMore && <MorePosts />}
         </div>
-        <div className={styles['right-contents']}>右</div>
+        <div className={styles['right-contents']}>
+          <Profile />
+        </div>
       </div>
     </main>
   )

@@ -4,6 +4,7 @@ import { GET_POST } from '@/graphql/queries'
 import { getClient } from '@/lib/apolloClient'
 import styles from './page.module.scss'
 import { PostContent } from '@/components/parts/PostContent'
+import { Profile } from '@/components/parts/Profile'
 
 type Post = {
   databaseId: number
@@ -56,7 +57,9 @@ export default async function Post({ searchParams }: Props) {
             terms={terms}
           />
         </div>
-        <div className={styles['right-contents']}>右</div>
+        <div className={styles['right-contents']}>
+          <Profile />
+        </div>
       </div>
     </main>
   )
