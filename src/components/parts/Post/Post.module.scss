@@ -1,8 +1,11 @@
 .post {
   background-color: #fff;
-  height: 160px;
+  min-height: 160px;
   width: 100%;
   padding: 12px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
 
   @media (min-width: 992px) {
     border-radius: 8px;
@@ -10,5 +13,49 @@
 
   h2 {
     margin-top: 0;
+    &:hover {
+      text-decoration: underline;
+    }
   }
+}
+
+.vertical-separator {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.labels-wrapper {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.labels {
+  margin-left: 8px;
+
+  .label:last-child {
+    margin-right: 0;
+  }
+}
+
+.label {
+  font-size: 14px;
+  color: #7a7d7d;
+  background-color: #edeeee;
+  margin-right: 8px;
+  padding: 2px 8px;
+  min-width: fit-content;
+}
+
+.label-icon {
+  padding-top: 2px;
+  min-width: 16px;
+}
+
+.date {
+  color: #7a7d7d;
+  display: flex;
+  font-size: 12px;
 }

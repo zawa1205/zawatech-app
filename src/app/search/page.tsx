@@ -26,7 +26,6 @@ export default async function Search({ searchParams }: Props) {
       ? searchParams['query']
       : searchParams['query'].join(' ')
     : ''
-  console.log(query)
   const baseUrl = 'http://localhost:3000'
   const { data } = await getClient().query({
     query: SEARCH_POSTS,
