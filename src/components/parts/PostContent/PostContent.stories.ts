@@ -17,6 +17,9 @@ export const Default: Story = {
   args: {
     title: 'Gitlab-CIでビルド時に環境変数CIが原因でエラーになる時の対処法',
     date: '2021-05-02T12:08:19',
+    tags: ['タグ１', 'タグ２', 'タグ３'],
+    categories: ['カテゴリ１', 'カテゴリ２', 'カテゴリ３'],
+    terms: ['term1', 'term2', 'term3'],
     content:
       '\n' +
       '<p>GitLabのCI/CDを用いて、GitLab側でビルド&amp;AWSのS3へデプロイをしようとしたときに<br>以下のようなエラーが起きました。</p>\n' +
