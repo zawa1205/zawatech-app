@@ -4,7 +4,6 @@ import React, { Suspense } from 'react'
 import { useSession } from 'next-auth/react'
 import useSWR from 'swr'
 import { PostContent } from '@/components/parts/PostContent'
-import Head from 'next/head'
 import { Profile } from '@/components/parts/Profile'
 import styles from './page.module.scss'
 import Image from 'next/image'
@@ -21,10 +20,6 @@ export default function Preview({ searchParams }: Props) {
   const baseUrl = 'http://localhost:3000'
   return (
     <main className={styles.main}>
-      <Head>
-        <title>zawatech.com</title>
-        <meta property="og:image" content={`${baseUrl}/api/og`} />
-      </Head>
       <div className={styles['main-wrapper']}>
         <div className={styles['left-contents']}></div>
         <div className={styles['center-contents']}>

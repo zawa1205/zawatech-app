@@ -15,7 +15,8 @@ const notojp = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: 'zawatech.com',
-  description: '',
+  description:
+    'webフロントエンド領域を中心に、日々の技術で詰まった事の解決方法などをまとめているエンジニアブログです',
 }
 
 export default function RootLayout({

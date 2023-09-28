@@ -40,8 +40,11 @@ export async function generateMetadata(
   return {
     title: `${title} - zawatech`,
     openGraph: {
-      url: `/api/og?title=${title}`,
+      url: `/post?p=${postId}`,
       images: `/api/og?title=${title}`,
+      title: title,
+      siteName: 'zawatech.com',
+      description,
     },
     description,
   }

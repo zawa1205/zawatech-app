@@ -1,5 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
 import { GET_TOP } from '@/graphql/queries'
 import { getClient } from '@/lib/apolloClient'
 import styles from './page.module.scss'
@@ -7,6 +6,7 @@ import { MorePosts } from '@/components/parts/MorePosts'
 import { Post } from '@/components/parts/Post'
 import Link from 'next/link'
 import { Profile } from '@/components/parts/Profile'
+import { Metadata } from 'next'
 
 type Post = {
   databaseId: number
@@ -15,6 +15,20 @@ type Post = {
   tags: string[]
   categories: string[]
   terms: string[]
+}
+
+export const metadata: Metadata = {
+  title: 'zawatech.com',
+  description:
+    'webフロントエンド領域を中心に、日々の技術で詰まった事の解決方法などをまとめているエンジニアブログです',
+  openGraph: {
+    url: `https://zawatech.com/`,
+    images: `/api/og?title=zawatech.com`,
+    title: 'zawatech.com',
+    siteName: 'zawatech.com',
+    description:
+      'webフロントエンド領域を中心に、日々の技術で詰まった事の解決方法などをまとめているエンジニアブログです',
+  },
 }
 
 export default async function Home() {
@@ -54,10 +68,6 @@ export default async function Home() {
 
   return (
     <main>
-      <Head>
-        <title>zawatech.com</title>
-        <meta property="og:image" content={`${baseUrl}/api/og`} />
-      </Head>
       <div className={styles['main-wrapper']}>
         <div className={styles['left-contents']}></div>
 

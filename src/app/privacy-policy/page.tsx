@@ -1,19 +1,23 @@
 import React from 'react'
-import Head from 'next/head'
 import styles from './page.module.scss'
 import { Profile } from '@/components/parts/Profile'
 import Link from 'next/link'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  description: 'zawatech.comのプライバシーポリシーを記載しているページです。',
+  openGraph: {
+    url: `https://zawatech.com/privacy-policy`,
+    images: `/api/og?title=プライバシーポリシー`,
+    title: 'プライバシーポリシー',
+    siteName: 'zawatech.com',
+    description: 'zawatech.comのプライバシーポリシーを記載しているページです。',
+  },
+}
 
 export default async function PrivacyPolicy() {
   return (
     <main className={styles.main}>
-      <Head>
-        <title>zawatech.com</title>
-        <meta
-          property="og:image"
-          content={`/api/og?title=プライバシーポリシー`}
-        />
-      </Head>
       <div className={styles['main-wrapper']}>
         <div className={styles['left-contents']}></div>
         <div className={styles['center-contents']}>
