@@ -8,7 +8,7 @@ import styles from './Header.module.scss'
 import { SearchInput } from '../SearchInput'
 import Link from 'next/link'
 import { Button } from '../Button'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 export const Header: FC = () => {
   const [inputVisible, setInputVisible] = useState(false)
@@ -27,7 +27,7 @@ export const Header: FC = () => {
         <div className={styles['normal-contents']}>
           <div className={styles['left-contents']}>
             <Link href="/">
-              <Logo width={100} height={40} />
+              <Logo width={100} height={21} />
             </Link>
           </div>
           <div className={styles['right-contents']}>
