@@ -105,6 +105,7 @@ export const GET_POST = gql`
       databaseId
       modified
       title
+      excerpt
       categories {
         nodes {
           name
@@ -115,6 +116,20 @@ export const GET_POST = gql`
           name
         }
       }
+      terms {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+`
+
+export const GET_POST_META = gql`
+  query GetPost($postId: ID!) {
+    post(id: $postId, idType: DATABASE_ID) {
+      title
+      excerpt
       terms {
         nodes {
           name
