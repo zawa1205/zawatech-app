@@ -1,12 +1,13 @@
 'use client'
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useSession } from 'next-auth/react'
 import useSWR from 'swr'
 import { PostContent } from '@/components/parts/PostContent'
 import Head from 'next/head'
 import { Profile } from '@/components/parts/Profile'
 import styles from './page.module.scss'
+import Image from 'next/image'
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
@@ -16,15 +17,47 @@ const fetcher = (url: string) => {
   return fetch(url).then((res) => res.json())
 }
 
-export default function App({ searchParams }: Props) {
+export default function Preview({ searchParams }: Props) {
   const baseUrl = 'http://localhost:3000'
+  return (
+    <main className={styles.main}>
+      <Head>
+        <title>zawatech.com</title>
+        <meta property="og:image" content={`${baseUrl}/api/og`} />
+      </Head>
+      <div className={styles['main-wrapper']}>
+        <div className={styles['left-contents']}>左</div>
+        <div className={styles['center-contents']}>
+          <Suspense fallback={<p>Loading feed...</p>}>
+            <FetchRender searchParams={searchParams} />
+          </Suspense>
+        </div>
+        <div className={styles['right-contents']}>
+          <Profile />
+        </div>
+      </div>
+    </main>
+  )
+}
+
+function FetchRender({ searchParams }: Props) {
   const { data: session } = useSession()
   const postId: string = searchParams['p']?.toString() ?? '0'
   const { data, isLoading } = useSWR(`/api/post?p=${postId}`, fetcher)
 
-  if (isLoading) return 'ローディング中'
+  if (isLoading) {
+    return (
+      <div className={styles.loading}>
+        <Image src="/spinner.svg" width={60} height={60} alt="読み込み中" />
+      </div>
+    )
+  }
   if (!data || !data.post || !(session && session.user?.role === 'admin'))
-    return '記事はありません'
+    return (
+      <div className={styles['not-found']}>
+        お探しの記事は見つかりませんでした
+      </div>
+    )
 
   const { title, modified, content } = data.post
   const categories: string[] = new Array()
@@ -42,27 +75,13 @@ export default function App({ searchParams }: Props) {
   })
 
   return (
-    <main className={styles.main}>
-      <Head>
-        <title>zawatech.com</title>
-        <meta property="og:image" content={`${baseUrl}/api/og`} />
-      </Head>
-      <div className={styles['main-wrapper']}>
-        <div className={styles['left-contents']}>左</div>
-        <div className={styles['center-contents']}>
-          <PostContent
-            title={title}
-            date={modified}
-            content={content}
-            categories={categories}
-            tags={tags}
-            terms={terms}
-          />
-        </div>
-        <div className={styles['right-contents']}>
-          <Profile />
-        </div>
-      </div>
-    </main>
+    <PostContent
+      title={title}
+      date={modified}
+      content={content}
+      categories={categories}
+      tags={tags}
+      terms={terms}
+    />
   )
 }
