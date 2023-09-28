@@ -49,6 +49,12 @@
 .center-contents {
   grid-area: centerContents;
 
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   @media (max-width: 991px) {
     width: 100vw;
   }

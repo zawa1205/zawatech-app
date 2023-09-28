@@ -2,23 +2,27 @@
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   color: #afb8c1;
-  //   background-color: #377fcc;
   background-color: #2f3232;
+  padding: 24px;
+
+  @media (max-width: 991px) {
+    flex-flow: column;
+    padding: 10px;
+  }
 
   a {
-    // color: #afb8c1c5;
     color: #fff;
+    font-size: 12px;
     text-decoration: none;
     &:hover {
       text-decoration: underline;
       color: #fff;
     }
   }
-}
 
-.separator {
-  opacity: 0.3;
-  padding: 0 12px;
+  .copyright {
+    font-size: 12px;
+  }
 }

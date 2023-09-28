@@ -1,15 +1,18 @@
 import { FC } from 'react'
 import styles from './Footer.module.scss'
 import Link from 'next/link'
+import { Logo } from '../Logo'
 
-export const Footer: FC = () => (
-  <footer className={styles.footer}>
-    <div>
-      <Link href="https://github.com/zawa1205">GitHub</Link>
-    </div>
-    <div className={styles.separator}>|</div>
-    <div>
-      <Link href="https://qiita.com/zawa1205">Qiita</Link>
-    </div>
-  </footer>
-)
+export const Footer: FC = () => {
+  const date = new Date()
+  const lastYear = date.getFullYear()
+  return (
+    <footer className={styles.footer}>
+      <Link href="/">
+        <Logo width={100} height={21} />
+      </Link>
+      <span className={styles.copyright}>© 2021 - {lastYear} zawatech</span>
+      <Link href="/privacy-policy">プライバシーポリシー</Link>
+    </footer>
+  )
+}
