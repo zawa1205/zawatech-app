@@ -15,7 +15,7 @@ export default async function PrivacyPolicy() {
         />
       </Head>
       <div className={styles['main-wrapper']}>
-        <div className={styles['left-contents']}>左</div>
+        <div className={styles['left-contents']}></div>
         <div className={styles['center-contents']}>
           <div className={styles.contents}>
             <h1>プライバシーポリシー</h1>

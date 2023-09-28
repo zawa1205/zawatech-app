@@ -59,7 +59,7 @@ export default async function Home() {
         <meta property="og:image" content={`${baseUrl}/api/og`} />
       </Head>
       <div className={styles['main-wrapper']}>
-        <div className={styles['left-contents']}>左</div>
+        <div className={styles['left-contents']}></div>
 
         <div className={styles['center-contents']}>
           {posts.map((post: Post) => (

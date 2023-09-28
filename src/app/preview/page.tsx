@@ -26,7 +26,7 @@ export default function Preview({ searchParams }: Props) {
         <meta property="og:image" content={`${baseUrl}/api/og`} />
       </Head>
       <div className={styles['main-wrapper']}>
-        <div className={styles['left-contents']}>左</div>
+        <div className={styles['left-contents']}></div>
         <div className={styles['center-contents']}>
           <Suspense fallback={<p>Loading feed...</p>}>
             <FetchRender searchParams={searchParams} />
@@ -82,6 +82,7 @@ function FetchRender({ searchParams }: Props) {
       categories={categories}
       tags={tags}
       terms={terms}
+      postId={postId}
     />
   )
 }

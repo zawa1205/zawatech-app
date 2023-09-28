@@ -12,6 +12,7 @@
   }
 
   h2 {
+    color: #333;
     margin-top: 0;
     &:hover {
       text-decoration: underline;
@@ -58,7 +59,4 @@
   color: #7a7d7d;
   display: flex;
   font-size: 12px;
-  &:hover {
-    text-decoration: none;
-  }
 }

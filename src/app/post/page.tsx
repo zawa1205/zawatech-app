@@ -40,7 +40,8 @@ export async function generateMetadata(
   return {
     title: `${title} - zawatech`,
     openGraph: {
-      images: [`/api/og?title=${title}`],
+      url: `/api/og?title=${title}`,
+      images: `/api/og?title=${title}`,
     },
     description,
   }
@@ -70,27 +71,26 @@ export default async function Post({ searchParams }: Props) {
   })
 
   return (
-    <main className={styles.main}>
-      <Head>
-        <title>zawatech.com</title>
-        <meta property="og:image" content={`${baseUrl}/api/og`} />
-      </Head>
-      <div className={styles['main-wrapper']}>
-        <div className={styles['left-contents']}>左</div>
-        <div className={styles['center-contents']}>
-          <PostContent
-            title={title}
-            date={modified}
-            content={content}
-            categories={categories}
-            tags={tags}
-            terms={terms}
-          />
+    <>
+      <main className={styles.main}>
+        <div className={styles['main-wrapper']}>
+          <div className={styles['left-contents']}></div>
+          <div className={styles['center-contents']}>
+            <PostContent
+              title={title}
+              date={modified}
+              content={content}
+              categories={categories}
+              tags={tags}
+              terms={terms}
+              postId={postId}
+            />
+          </div>
+          <div className={styles['right-contents']}>
+            <Profile />
+          </div>
         </div>
-        <div className={styles['right-contents']}>
-          <Profile />
-        </div>
-      </div>
-    </main>
+      </main>
+    </>
   )
 }
