@@ -18,6 +18,7 @@ export const AdsenseRight: FC = () => {
         data-full-width-responsive="true"
       />
       <Script
+        id="ads-right"
         dangerouslySetInnerHTML={{
           __html: `
         (adsbygoogle = window.adsbygoogle || []).push({});

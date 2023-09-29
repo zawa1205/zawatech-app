@@ -18,6 +18,7 @@ export const AdsenseLeft: FC = () => {
         data-full-width-responsive="true"
       />
       <Script
+        id="ads-left"
         dangerouslySetInnerHTML={{
           __html: `
         (adsbygoogle = window.adsbygoogle || []).push({});

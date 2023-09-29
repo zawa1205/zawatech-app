@@ -17,6 +17,7 @@ export const AdsensePageBottom: FC = () => {
         data-ad-slot="7805909264"
       />
       <Script
+        id="ids-bottom"
         dangerouslySetInnerHTML={{
           __html: `
             (adsbygoogle = window.adsbygoogle || []).push({});
