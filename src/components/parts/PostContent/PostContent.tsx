@@ -3,6 +3,7 @@ import styles from './PostContent.module.scss'
 import './innerHtml.scss'
 import Image from 'next/image'
 import Link from 'next/link'
+import { AdsensePageBottom } from '../AdsensePageBottom/AdsensePageBottom'
 
 type PostContentProps = {
   title: string
@@ -120,6 +121,7 @@ export const PostContent: FC<PostContentProps> = ({
           </div>
         </Link>
       </div>
+      <AdsensePageBottom />
     </div>
   )
 }

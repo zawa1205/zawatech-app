@@ -7,6 +7,8 @@ import { PostContent } from '@/components/parts/PostContent'
 import { Profile } from '@/components/parts/Profile'
 import styles from './page.module.scss'
 import Image from 'next/image'
+import { AdsenseLeft } from '@/components/parts/AdsenseLeft'
+import { AdsenseRight } from '@/components/parts/AdsenseRight'
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
@@ -20,7 +22,9 @@ export default function Preview({ searchParams }: Props) {
   return (
     <main className={styles.main}>
       <div className={styles['main-wrapper']}>
-        <div className={styles['left-contents']}></div>
+        <div className={styles['left-contents']}>
+          <AdsenseLeft />
+        </div>
         <div className={styles['center-contents']}>
           <Suspense fallback={<p>Loading feed...</p>}>
             <FetchRender searchParams={searchParams} />
@@ -28,6 +32,7 @@ export default function Preview({ searchParams }: Props) {
         </div>
         <div className={styles['right-contents']}>
           <Profile />
+          <AdsenseRight />
         </div>
       </div>
     </main>
