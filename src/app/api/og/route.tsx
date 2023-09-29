@@ -6,7 +6,7 @@ export const runtime = 'edge'
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const hasTitle = searchParams.has('title')
-  const title = hasTitle ? searchParams.get('title')?.slice(0, 50) : ''
+  const title = hasTitle ? searchParams.get('title')?.slice(0, 70) : ''
   const userName = 'zawa1205'
   const fontData = await fetch(
     new URL('./AkazukiPOP.woff', import.meta.url),
