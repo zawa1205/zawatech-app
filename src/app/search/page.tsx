@@ -27,7 +27,7 @@ export default async function Search({ searchParams }: Props) {
       ? searchParams['query']
       : searchParams['query'].join(' ')
     : ''
-  const baseUrl = 'http://localhost:3000'
+  const baseUrl = 'https://zawatech.com'
   const { data } = await getClient().query({
     query: SEARCH_POSTS,
     variables: { query: query, size: 4, offset: 0 },

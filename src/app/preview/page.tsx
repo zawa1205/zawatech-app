@@ -17,7 +17,6 @@ const fetcher = (url: string) => {
 }
 
 export default function Preview({ searchParams }: Props) {
-  const baseUrl = 'http://localhost:3000'
   return (
     <main className={styles.main}>
       <div className={styles['main-wrapper']}>

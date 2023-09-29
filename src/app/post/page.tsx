@@ -52,7 +52,6 @@ export async function generateMetadata(
 
 export default async function Post({ searchParams }: Props) {
   const postId: string = searchParams['p']?.toString() ?? '0'
-  const baseUrl = 'http://localhost:3000'
   const { data } = await getClient().query({
     query: GET_POST,
     variables: { postId: postId },

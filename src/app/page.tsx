@@ -32,7 +32,6 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
-  const baseUrl = 'http://localhost:3000'
   const { data } = await getClient().query({
     query: GET_TOP,
     variables: { size: 5, offset: 0 },
