@@ -26,10 +26,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" className={notojp.className}>
-      <script
+      <Script
         async
         src="https://www.googletagmanager.com/gtag/js?id=G-FM34WTX90M"
-      ></script>
+      />
       <Script
         id="gtag-init"
         strategy="afterInteractive"
