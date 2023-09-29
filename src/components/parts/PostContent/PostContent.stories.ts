@@ -20,6 +20,7 @@ export const Default: Story = {
     tags: ['タグ１', 'タグ２', 'タグ３'],
     categories: ['カテゴリ１', 'カテゴリ２', 'カテゴリ３'],
     terms: ['term1', 'term2', 'term3'],
+    postId: '1',
     content:
       '\n' +
       '<p>GitLabのCI/CDを用いて、GitLab側でビルド&amp;AWSのS3へデプロイをしようとしたときに<br>以下のようなエラーが起きました。</p>\n' +
