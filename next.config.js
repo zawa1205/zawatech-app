@@ -6,7 +6,6 @@ const nextConfig = {
     domains: ['localhost', 'github.com', 'zawatech.com'],
   },
   sassOptions: {
-    fiber: false,
     includePaths: [path.join(__dirname, 'styles')],
   },
 }
