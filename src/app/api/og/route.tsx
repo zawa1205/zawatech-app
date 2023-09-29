@@ -1,6 +1,7 @@
 import { ImageResponse } from 'next/server'
 
-export const runtime = 'edge'
+// vercelの edge function の runtimeに引っかかるのでやめ
+// export const runtime = 'edge'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
