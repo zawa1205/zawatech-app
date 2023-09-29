@@ -1,17 +1,13 @@
-import React from 'react'
 import { ImageResponse } from 'next/server'
 
-// vercelの edge function の容量が1MBまでのためコメントアウト（2.27MB）
+// vercelの edge function の runtimeに引っかかるのでやめ
 // export const runtime = 'edge'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const hasTitle = searchParams.has('title')
-  const title = hasTitle ? searchParams.get('title')?.slice(0, 50) : ''
+  const title = hasTitle ? searchParams.get('title')?.slice(0, 70) : ''
   const userName = 'zawa1205'
-  const fontData = await fetch(
-    new URL('./AkazukiPOP.woff', import.meta.url),
-  ).then((res) => res.arrayBuffer())
 
   return new ImageResponse(
     (
@@ -38,7 +34,6 @@ export async function GET(request: Request) {
             width: '100%',
             fontWeight: 'bold',
             fontSize: 60,
-            fontFamily: '"NotoSansJP"',
           }}
         >
           {title}
@@ -68,7 +63,6 @@ export async function GET(request: Request) {
     {
       width: 1200,
       height: 630,
-      fonts: [{ name: 'AdobeBlank', data: fontData, style: 'normal' }],
     },
   )
 }

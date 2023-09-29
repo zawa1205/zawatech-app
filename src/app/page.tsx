@@ -7,6 +7,7 @@ import { Post } from '@/components/parts/Post'
 import Link from 'next/link'
 import { Profile } from '@/components/parts/Profile'
 import { Metadata } from 'next'
+import { permanentRedirect } from 'next/navigation'
 
 type Post = {
   databaseId: number
@@ -31,7 +32,16 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function Home() {
+type Props = {
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default async function Home({ searchParams }: Props) {
+  const postId: string = searchParams['p']?.toString() ?? '-1'
+
+  // サイト移行によるリダイレクト処理
+  if (postId !== '-1') permanentRedirect(`/post?p=${postId}`)
+
   const { data } = await getClient().query({
     query: GET_TOP,
     variables: { size: 5, offset: 0 },
