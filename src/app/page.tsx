@@ -8,6 +8,8 @@ import Link from 'next/link'
 import { Profile } from '@/components/parts/Profile'
 import { Metadata } from 'next'
 import { permanentRedirect } from 'next/navigation'
+import { AdsenseLeft } from '@/components/parts/AdsenseLeft'
+import { AdsenseRight } from '@/components/parts/AdsenseRight'
 
 type Post = {
   databaseId: number
@@ -78,7 +80,9 @@ export default async function Home({ searchParams }: Props) {
   return (
     <main>
       <div className={styles['main-wrapper']}>
-        <div className={styles['left-contents']}></div>
+        <div className={styles['left-contents']}>
+          <AdsenseLeft />
+        </div>
 
         <div className={styles['center-contents']}>
           {posts.map((post: Post) => (
@@ -100,6 +104,7 @@ export default async function Home({ searchParams }: Props) {
         </div>
         <div className={styles['right-contents']}>
           <Profile />
+          <AdsenseRight />
         </div>
       </div>
     </main>

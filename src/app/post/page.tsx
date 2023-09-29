@@ -1,5 +1,4 @@
 import React from 'react'
-import Head from 'next/head'
 import { GET_POST, GET_POST_META } from '@/graphql/queries'
 import { getClient } from '@/lib/apolloClient'
 import styles from './page.module.scss'
@@ -7,6 +6,8 @@ import { PostContent } from '@/components/parts/PostContent'
 import { Profile } from '@/components/parts/Profile'
 import { Metadata, ResolvingMetadata } from 'next'
 import { decodeHtmlEscapes } from '@/utilities'
+import { AdsenseLeft } from '@/components/parts/AdsenseLeft'
+import { AdsenseRight } from '@/components/parts/AdsenseRight'
 
 type Post = {
   databaseId: number
@@ -76,7 +77,9 @@ export default async function Post({ searchParams }: Props) {
     <>
       <main className={styles.main}>
         <div className={styles['main-wrapper']}>
-          <div className={styles['left-contents']}></div>
+          <div className={styles['left-contents']}>
+            <AdsenseLeft />
+          </div>
           <div className={styles['center-contents']}>
             <PostContent
               title={title}
@@ -90,6 +93,7 @@ export default async function Post({ searchParams }: Props) {
           </div>
           <div className={styles['right-contents']}>
             <Profile />
+            <AdsenseRight />
           </div>
         </div>
       </main>
