@@ -28,6 +28,11 @@ export default function RootLayout({
     <html lang="ja" className={notojp.className}>
       <Script
         async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775345886458617"
+        crossOrigin="anonymous"
+      />
+      <Script
+        async
         src="https://www.googletagmanager.com/gtag/js?id=G-FM34WTX90M"
       />
       <Script
