@@ -7,9 +7,6 @@ export async function GET(request: Request) {
   const hasTitle = searchParams.has('title')
   const title = hasTitle ? searchParams.get('title')?.slice(0, 70) : ''
   const userName = 'zawa1205'
-  const fontData = await fetch(
-    new URL('./AkazukiPOP.woff', import.meta.url),
-  ).then((res) => res.arrayBuffer())
 
   return new ImageResponse(
     (
@@ -36,7 +33,6 @@ export async function GET(request: Request) {
             width: '100%',
             fontWeight: 'bold',
             fontSize: 60,
-            fontFamily: '"NotoSansJP"',
           }}
         >
           {title}
@@ -66,7 +62,6 @@ export async function GET(request: Request) {
     {
       width: 1200,
       height: 630,
-      fonts: [{ name: 'AdobeBlank', data: fontData, style: 'normal' }],
     },
   )
 }
