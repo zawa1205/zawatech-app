@@ -1,8 +1,7 @@
 import React from 'react'
 import { ImageResponse } from 'next/server'
 
-// vercelの edge function の容量が1MBまでのためコメントアウト（2.27MB）
-// export const runtime = 'edge'
+export const runtime = 'edge'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
