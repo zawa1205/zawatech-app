@@ -30,6 +30,13 @@
 
 .left-contents {
   grid-area: leftContents;
+
+  @media (max-width: 991px) {
+    margin-top: 24px;
+  }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    padding-right: 24px;
+  }
 }
 
 .right-contents {
