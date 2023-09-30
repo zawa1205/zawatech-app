@@ -1,9 +1,10 @@
 import Script from 'next/script'
 import { FC } from 'react'
+import styles from './AdsenseRight.module.scss'
 
 export const AdsenseRight: FC = () => {
   return (
-    <>
+    <div className={styles.wrapper}>
       <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775345886458617"
@@ -25,6 +26,6 @@ export const AdsenseRight: FC = () => {
          `,
         }}
       />
-    </>
+    </div>
   )
 }

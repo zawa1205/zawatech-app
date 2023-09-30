@@ -3,7 +3,7 @@ import { FC } from 'react'
 
 export const AdsenseLeft: FC = () => {
   return (
-    <>
+    <div>
       <Script
         async
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6775345886458617"
@@ -25,6 +25,6 @@ export const AdsenseLeft: FC = () => {
          `,
         }}
       />
-    </>
+    </div>
   )
 }
