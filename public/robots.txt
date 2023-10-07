@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://zawatech.com/
+
+# Sitemaps
+Sitemap: https://zawatech.com/sitemap.xml
