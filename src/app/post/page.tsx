@@ -8,6 +8,7 @@ import { Metadata, ResolvingMetadata } from 'next'
 import { decodeHtmlEscapes } from '@/utilities'
 import { AdsenseLeft } from '@/components/parts/AdsenseLeft'
 import { AdsenseRight } from '@/components/parts/AdsenseRight'
+import { AdsenseRight2 } from '@/components/parts/AdsenseRight2'
 
 type Post = {
   databaseId: number
@@ -78,7 +79,9 @@ export default async function Post({ searchParams }: Props) {
       <main className={styles.main}>
         <div className={styles['main-wrapper']}>
           <div className={styles['left-contents']}>
-            <AdsenseLeft />
+            <div className={styles['left-contents-sticky']}>
+              <AdsenseLeft />
+            </div>
           </div>
           <div className={styles['center-contents']}>
             <PostContent
@@ -92,8 +95,11 @@ export default async function Post({ searchParams }: Props) {
             />
           </div>
           <div className={styles['right-contents']}>
-            <Profile />
-            <AdsenseRight />
+            <div className={styles['right-contents-sticky']}>
+              <Profile />
+              <AdsenseRight />
+              <AdsenseRight2 />
+            </div>
           </div>
         </div>
       </main>

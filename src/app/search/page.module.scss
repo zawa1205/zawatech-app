@@ -30,6 +30,22 @@
 
 .left-contents {
   grid-area: leftContents;
+
+  @media (max-width: 991px) {
+    margin-top: 24px;
+  }
+  @media (min-width: 992px) and (max-width: 1199px) {
+    padding-right: 24px;
+  }
+
+  .left-contents-sticky {
+    width: 100%;
+
+    @media (min-width: 1200px) {
+      position: sticky;
+      top: 24px;
+    }
+  }
 }
 
 .right-contents {
@@ -44,10 +60,25 @@
   @media (min-width: 1200px) {
     padding-right: 16px;
   }
+
+  .right-contents-sticky {
+    width: 100%;
+
+    @media (min-width: 1200px) {
+      position: sticky;
+      top: 24px;
+    }
+  }
 }
 
 .center-contents {
   grid-area: centerContents;
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 
   @media (max-width: 991px) {
     width: 100vw;

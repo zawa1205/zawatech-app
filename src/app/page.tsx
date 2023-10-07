@@ -10,6 +10,7 @@ import { Metadata } from 'next'
 import { permanentRedirect } from 'next/navigation'
 import { AdsenseLeft } from '@/components/parts/AdsenseLeft'
 import { AdsenseRight } from '@/components/parts/AdsenseRight'
+import { AdsenseRight2 } from '@/components/parts/AdsenseRight2'
 
 type Post = {
   databaseId: number
@@ -81,7 +82,9 @@ export default async function Home({ searchParams }: Props) {
     <main>
       <div className={styles['main-wrapper']}>
         <div className={styles['left-contents']}>
-          <AdsenseLeft />
+          <div className={styles['left-contents-sticky']}>
+            <AdsenseLeft />
+          </div>
         </div>
 
         <div className={styles['center-contents']}>
@@ -103,8 +106,11 @@ export default async function Home({ searchParams }: Props) {
           {hasMore && <MorePosts />}
         </div>
         <div className={styles['right-contents']}>
-          <Profile />
-          <AdsenseRight />
+          <div className={styles['right-contents-sticky']}>
+            <Profile />
+            <AdsenseRight />
+            <AdsenseRight2 />
+          </div>
         </div>
       </div>
     </main>

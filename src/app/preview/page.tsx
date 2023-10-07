@@ -9,6 +9,7 @@ import styles from './page.module.scss'
 import Image from 'next/image'
 import { AdsenseLeft } from '@/components/parts/AdsenseLeft'
 import { AdsenseRight } from '@/components/parts/AdsenseRight'
+import { AdsenseRight2 } from '@/components/parts/AdsenseRight2'
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined }
@@ -23,7 +24,9 @@ export default function Preview({ searchParams }: Props) {
     <main className={styles.main}>
       <div className={styles['main-wrapper']}>
         <div className={styles['left-contents']}>
-          <AdsenseLeft />
+          <div className={styles['left-contents-sticky']}>
+            <AdsenseLeft />
+          </div>
         </div>
         <div className={styles['center-contents']}>
           <Suspense fallback={<p>Loading feed...</p>}>
@@ -31,8 +34,11 @@ export default function Preview({ searchParams }: Props) {
           </Suspense>
         </div>
         <div className={styles['right-contents']}>
-          <Profile />
-          <AdsenseRight />
+          <div className={styles['right-contents-sticky']}>
+            <Profile />
+            <AdsenseRight />
+            <AdsenseRight2 />
+          </div>
         </div>
       </div>
     </main>
