@@ -97,6 +97,9 @@ devDependencies:
   jest:
     specifier: ^29.7.0
     version: 29.7.0(@types/node@20.6.0)
+  next-sitemap:
+    specifier: ^4.2.3
+    version: 4.2.3(next@13.5.3)
   prettier:
     specifier: 3.0.3
     version: 3.0.3
@@ -1587,6 +1590,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@corex/deepmerge@4.0.43:
+    resolution: {integrity: sha512-N8uEMrMPL0cu/bdboEWpQYb/0i2K5Qn8eCsxzOmxSggJbbQte7ljMRoXm917AbntqTGOzdTu+vP3KOOzoC70HQ==}
+    dev: true
 
   /@discoveryjs/json-ext@0.5.7:
     resolution: {integrity: sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==}
@@ -9485,6 +9492,20 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       uuid: 8.3.2
+
+  /next-sitemap@4.2.3(next@13.5.3):
+    resolution: {integrity: sha512-vjdCxeDuWDzldhCnyFCQipw5bfpl4HmZA7uoo3GAaYGjGgfL4Cxb1CiztPuWGmS+auYs7/8OekRS8C2cjdAsjQ==}
+    engines: {node: '>=14.18'}
+    hasBin: true
+    peerDependencies:
+      next: '*'
+    dependencies:
+      '@corex/deepmerge': 4.0.43
+      '@next/env': 13.5.3
+      fast-glob: 3.3.1
+      minimist: 1.2.8
+      next: 13.5.3(@babel/core@7.22.20)(react-dom@18.2.0)(react@18.2.0)(sass@1.68.0)
+    dev: true
 
   /next@13.5.3(@babel/core@7.22.20)(react-dom@18.2.0)(react@18.2.0)(sass@1.68.0):
     resolution: {integrity: sha512-4Nt4HRLYDW/yRpJ/QR2t1v63UOMS55A38dnWv3UDOWGezuY0ZyFO1ABNbD7mulVzs9qVhgy2+ppjdsANpKP1mg==}
