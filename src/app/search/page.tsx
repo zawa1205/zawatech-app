@@ -7,6 +7,9 @@ import { MorePosts } from '@/components/parts/MorePosts'
 import { Post } from '@/components/parts/Post'
 import Link from 'next/link'
 import { Profile } from '@/components/parts/Profile'
+import { AdsenseLeft } from '@/components/parts/AdsenseLeft'
+import { AdsenseRight } from '@/components/parts/AdsenseRight'
+import { AdsenseRight2 } from '@/components/parts/AdsenseRight2'
 
 type Post = {
   databaseId: number
@@ -68,7 +71,11 @@ export default async function Search({ searchParams }: Props) {
         <meta property="og:image" content={`${baseUrl}/api/og`} />
       </Head>
       <div className={styles['main-wrapper']}>
-        <div className={styles['left-contents']}></div>
+        <div className={styles['left-contents']}>
+          <div className={styles['left-contents-sticky']}>
+            <AdsenseLeft />
+          </div>
+        </div>
 
         <div className={styles['center-contents']}>
           {posts.map((post: Post) => (
@@ -89,7 +96,11 @@ export default async function Search({ searchParams }: Props) {
           {hasMore && <MorePosts />}
         </div>
         <div className={styles['right-contents']}>
-          <Profile />
+          <div className={styles['right-contents-sticky']}>
+            <Profile />
+            <AdsenseRight />
+            <AdsenseRight2 />
+          </div>
         </div>
       </div>
     </main>
